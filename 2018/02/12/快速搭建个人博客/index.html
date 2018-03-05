@@ -543,30 +543,48 @@
                 <!-- Post Comments -->
                 
                     
-    <!-- 使用 gitcoment -->
-<div id="gitment-comment">
-    <!-- Gitment 评论框 -->
-<div id="container"></div>
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '90da52e76c9dfebd06cc',
+            clientSecret: '05a2679188fdb74102b8953810fce915ae06d09b',
+            repo: 'gittalk',
+            owner: 'sishuiwuxie',
+            admin: ['sishuiwuxie'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
 </div>
 <style>
-    #gitment-comment{
+    #gitalk-comment {
         background-color: #eee;
         padding: 2pc;
     }
 </style>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
-    var gitment = new Gitment({
-        //id: '页面 ID', // 可选。默认为 location.href
-        owner: 'sishuiwuxie',
-        repo: 'gitment',
-        oauth: {
-            client_id: 'bafd455ad592957f411a',
-            client_secret: '82d0d8df8c2aae3d9c6f13edc1d420a651619cb7',
-        },
-    })
-    gitment.render('container')
+    var gitalk = new Gitalk({
+            clientID: '90da52e76c9dfebd06cc',
+            clientSecret: '05a2679188fdb74102b8953810fce915ae06d09b',
+            repo: 'gittalk',
+            owner: 'sishuiwuxie',
+            admin: ['sishuiwuxie'],
+            // facebook-like distraction free mode
+            id: '快速搭建个人博客', // 加了这一行
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
 </script>
 
                 
@@ -880,7 +898,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-   <!-- Gitment -->
+   <!-- GitTalk -->
 
 
 
