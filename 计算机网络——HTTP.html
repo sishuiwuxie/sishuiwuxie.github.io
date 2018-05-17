@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Thu May 17 2018 21:06:08 GMT+0800">
-        <meta property="article:modified_time" content="Thu May 17 2018 21:06:46 GMT+0800">
+        <meta property="article:modified_time" content="Thu May 17 2018 21:10:19 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "http://www.muer.link/计算机网络——HTTP.html",
     "headline": "计算机网络——HTTP",
     "datePublished": "Thu May 17 2018 21:06:08 GMT+0800",
-    "dateModified": "Thu May 17 2018 21:06:46 GMT+0800",
+    "dateModified": "Thu May 17 2018 21:10:19 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -476,8 +476,7 @@
 <p> <strong>HTTP</strong> 是基于 TCP/IP 协议的应用层协议。它不涉及数据包（packet）传输，主要规定了客户端和服务器之间的通信格式，默认使用80端口。</p>
 </blockquote>
 <p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016081901.jpg" alt="enter image description here"></p>
-<p>####HTTP请求报文（HTTP request）</p>
-<blockquote>
+<h4 id="HTTP请求报文（HTTP-request）"><a href="#HTTP请求报文（HTTP-request）" class="headerlink" title="HTTP请求报文（HTTP request）"></a>HTTP请求报文（HTTP request）</h4><blockquote>
 <p> HTTP请求报文是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：请求行、请求头、请求数据。</p>
 </blockquote>
 <p><img src="https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png" alt="enter image description here"></p>
@@ -495,8 +494,7 @@
 </li>
 </ol>
 <hr>
-<p>####HTTP响应报文（HTTP response）</p>
-<blockquote>
+<h4 id="HTTP响应报文（HTTP-response）"><a href="#HTTP响应报文（HTTP-response）" class="headerlink" title="HTTP响应报文（HTTP response）"></a>HTTP响应报文（HTTP response）</h4><blockquote>
 <p>HTTP响应报文是以状态行(status-line)、响应头(Response Header)、响应正文（response-body）3部分构成</p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Date</span>: Sat, 31 Dec 2005 23:59:59 GMT</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html;charset=ISO-8859-1</span><br><span class="line"><span class="attribute">Content-Length</span>: 122</span><br><span class="line">＜html＞</span><br><span class="line">＜head＞</span><br><span class="line">＜title＞Wrox Homepage＜/title＞</span><br><span class="line">＜/head＞</span><br><span class="line">＜body＞</span><br><span class="line">＜!-- body goes here --＞</span><br><span class="line">＜/body＞</span><br><span class="line">＜/html＞</span><br></pre></td></tr></table></figure>
@@ -519,8 +517,7 @@
 <li>503 Server Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常，</li>
 </ul>
 <hr>
-<p>####条件 GET</p>
-<blockquote>
+<h4 id="条件-GET"><a href="#条件-GET" class="headerlink" title="条件 GET"></a>条件 GET</h4><blockquote>
 <p>条件GET是 HTTP 协议为了减少不必要的带宽浪费，可以用来验证缓存的有效性，省去不必要的控制手段，以及验证文件的完整性，例如在断点续传的场景下或者在上传或者修改服务器端的文件的时候避免更新丢失问题。</p>
 </blockquote>
 <ol>
@@ -545,8 +542,7 @@ If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
 </code></pre>
 <p>如果服务器端资源已经更新的话，就返回正常的响应。</p>
 <hr>
-<p>####持久连接</p>
-<blockquote>
+<h4 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h4><blockquote>
 <p>HTTP持久连接（HTTP persistent connection，也称作HTTP keep-alive或HTTP connection reuse）是使用同一个TCP连接来发送和接收多个HTTP请求/应答，而不是为每一个新的请求/应答打开新的连接的方法。</p>
 </blockquote>
 <p>我们知道 HTTP 协议采用“请求-应答”模式，当使用普通模式，即非 Keep-Alive 模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP 协议为无连接的协议）；当使用 Keep-Alive 模式（又称持久连接、连接重用）时，Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接。</p>
@@ -568,8 +564,7 @@ If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT
 </li>
 </ul>
 <hr>
-<p>####Transfer-Encoding</p>
-<blockquote>
+<h4 id="Transfer-Encoding"><a href="#Transfer-Encoding" class="headerlink" title="Transfer-Encoding"></a>Transfer-Encoding</h4><blockquote>
 <p>Transfer-Encoding 是一个用来标示 HTTP 报文传输格式的头部值。尽管这个取值理论上可以有很多，但是当前的 HTTP 规范里实际上之定义了一种传输取值——chunked。</p>
 </blockquote>
 <p>如果一个HTTP消息（请求消息或应答消息）的Transfer-Encoding消息头的值为chunked，那么，消息体由数量未定的块组成，并以最后一个大小为0的块为结束。</p>
@@ -594,8 +589,7 @@ and this is the second one
 <li>chunked 的优势在于，服务器端可以边生成内容边发送，无需事先生成全部的内容。HTTP/2 不支持 Transfer-Encoding: chunked，因为 HTTP/2 有自己的 streaming 传输方式。</li>
 </ul>
 <hr>
-<p>####HTTP Pipelining（HTTP 管线化）</p>
-<blockquote>
+<h4 id="HTTP-Pipelining（HTTP-管线化）"><a href="#HTTP-Pipelining（HTTP-管线化）" class="headerlink" title="HTTP Pipelining（HTTP 管线化）"></a>HTTP Pipelining（HTTP 管线化）</h4><blockquote>
 <p>默认情况下 HTTP 协议中每个传输层连接只能承载一个 HTTP 请求和响应，浏览器会在收到上一个请求的响应之后，再发送下一个请求。在使用持久连接的情况下，某个连接上消息的传递类似于请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3。</p>
 </blockquote>
 <p>HTTP Pipelining（管线化）是将多个 HTTP 请求整批提交的技术，在传送过程中不需等待服务端的回应。使用 HTTP Pipelining 技术之后，某个连接上的消息变成了类似这样请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3。</p>
@@ -608,8 +602,7 @@ and this is the second one
 <li>由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如 Chrome 和 Firefox 默认并未开启管线化支持</li>
 </ul>
 <hr>
-<p>####会话跟踪</p>
-<blockquote>
+<h4 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h4><blockquote>
 <p>客户端打开与服务器的连接发出请求到服务器响应客户端请求的全过程称之为会话。会话跟踪指的是对同一个用户对服务器的连续的请求和接受响应的监视。</p>
 </blockquote>
 <p>浏览器与服务器之间的通信是通过HTTP协议进行通信的，而HTTP协议是”无状态”的协议，它不能保存客户的信息，即一次响应完成之后连接就断开了，下一次的请求需要重新连接，这样就需要判断是否是同一个用户，所以才有会话跟踪技术来实现这种要求。</p>
@@ -626,8 +619,7 @@ and this is the second one
 </ol>
 <p>4.Session:<br>每一个用户都有一个不同的session，各个用户之间是不能共享的，是每个用户所独享的，在session中可以存放信息。<br>在服务器端会创建一个session对象，产生一个sessionID来标识这个session对象，然后将这个sessionID放入到Cookie中发送到客户端，下一次访问时，sessionID会发送到服务器，在服务器端进行识别不同的用户。<br>Session的实现依赖于Cookie，如果Cookie被禁用，那么session也将失效。</p>
 <hr>
-<p>####跨站攻击</p>
-<p> *CSRF（Cross-site request forgery，跨站请求伪造）<br>CSRF(XSRF) 顾名思义，是伪造请求，冒充用户在站内的正常操作。</p>
+<h4 id="跨站攻击"><a href="#跨站攻击" class="headerlink" title="跨站攻击"></a>跨站攻击</h4><p> *CSRF（Cross-site request forgery，跨站请求伪造）<br>CSRF(XSRF) 顾名思义，是伪造请求，冒充用户在站内的正常操作。</p>
 <p>例如，一论坛网站的发贴是通过 GET 请求访问，点击发贴之后 JS 把发贴内容拼接成目标 URL 并访问：</p>
 <pre><code class="http">http://example.com/bbs/create_post.php?title=标题&amp;content=内容
 </code></pre>
