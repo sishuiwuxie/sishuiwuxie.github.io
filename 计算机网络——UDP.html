@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Fri May 18 2018 21:10:45 GMT+0800">
-        <meta property="article:modified_time" content="Fri May 18 2018 21:10:45 GMT+0800">
+        <meta property="article:modified_time" content="Fri May 18 2018 21:14:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "http://www.muer.link/计算机网络——UDP.html",
     "headline": "计算机网络——UDP",
     "datePublished": "Fri May 18 2018 21:10:45 GMT+0800",
-    "dateModified": "Fri May 18 2018 21:10:45 GMT+0800",
+    "dateModified": "Fri May 18 2018 21:14:27 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -472,7 +472,17 @@
             <p class="post-title">
                 计算机网络——UDP
             </p>
-            
+            <h2 id="计算机网络——UDP"><a href="#计算机网络——UDP" class="headerlink" title="计算机网络——UDP"></a>计算机网络——UDP</h2><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><blockquote>
+<p> <strong>UDP</strong> 在网络中它与TCP协议一样用于处理数据包，是一种无连接的协议。在OSI模型中，在第四层——传输层，处于IP协议的上一层。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。UDP用来支持那些需要在计算机之间传输数据的网络应用。包括网络视频会议系统在内的众多的客户/服务器模式的网络应用都需要使用UDP协议。UDP协议从问世至今已经被使用了很多年，虽然其最初的光彩已经被一些类似协议所掩盖，但是即使是在今天UDP仍然不失为一项非常实用和可行的网络传输层协议。<br><img src="https://images0.cnblogs.com/blog/599561/201401/171224353924.jpg" alt="enter image description here"></p>
+</blockquote>
+<ul>
+<li>UDP 缺乏可靠性。UDP 本身不提供确认，序列号，超时重传等机制。UDP 数据报可能在网络中被复制，被重新排序。即 UDP 不保证数据报会到达其最终目的地，也不保证各个数据报的先后顺序，也不保证每个数据报只到达一次</li>
+<li>UDP 数据报是有长度的。每个 UDP 数据报都有长度，如果一个数据报正确地到达目的地，那么该数据报的长度将随数据一起传递给接收方。而 TCP 是一个字节流协议，没有任何（协议上的）记录边界。</li>
+<li>UDP 是无连接的。UDP 客户和服务器之前不必存在长期的关系。UDP 发送数据报之前也不需要经过握手创建连接的过程。</li>
+<li>UDP 支持多播和广播。</li>
+</ul>
+<hr>
+
             
                 <blockquote>
                     <p>
