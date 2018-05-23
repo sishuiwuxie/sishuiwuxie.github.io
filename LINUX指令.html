@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Wed May 23 2018 11:12:21 GMT+0800">
-        <meta property="article:modified_time" content="Wed May 23 2018 12:28:43 GMT+0800">
+        <meta property="article:modified_time" content="Wed May 23 2018 12:37:42 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "http://www.muer.link/LINUX指令.html",
     "headline": "LINUX指令",
     "datePublished": "Wed May 23 2018 11:12:21 GMT+0800",
-    "dateModified": "Wed May 23 2018 12:28:43 GMT+0800",
+    "dateModified": "Wed May 23 2018 12:37:42 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -547,27 +547,27 @@ ln [option] directory pathname &lt;br&gt;
 -atime    按最后一次访问时间查找 &lt;br&gt;
 </code></pre><p>例如：% find ./ -name ‘<em>abc</em>‘ -print <br></p>
 </li>
-<li><p><strong>搜索文件中匹配符</strong> <br><br>命令：grep <br><br>格式：grep [option] pattern filenames <br><br>功能：逐行搜索所指定的文件或标准输入，并显示匹配模式的每一行。 <br><br>选项：-i    匹配时忽略大小写 <br></p>
+<li><p><strong>搜索文件中匹配符</strong> <br><br>命令：grep <br><br>格式：grep [option] pattern filenames <br><br>功能：逐行搜索所指定的文件或标准输入，并显示匹配模式的每一行。 <br><br>选项： <br>-i    匹配时忽略大小写 <br></p>
 <pre><code>-v 找出模式失配的行 &lt;br&gt;
 </code></pre><p>例如：% grep -i ‘java*’ ./test/run.sh </p>
-</li>
-<li><p><strong>统计文件字数</strong> <br><br>命令：wc [option] filename <br><br>功能：统计文件中的文件行数、字数和字符数。 <br><br>选项：<br>-l 统计文件的行数 <br></p>
-<pre><code>-w 统计文件的单词数 &lt;br&gt;
--c 统计文件的字符数 &lt;br&gt;
-</code></pre><p>注释：若缺省文件名则指标准输入 <br><br><br>例如：% wc -c ./test/run.sh <br></p>
-</li>
-<li><p><strong>显示磁盘空间</strong> <br><br>命令：df (disk free) <br><br>格式：df [option] <br><br>功能：显示磁盘空间的使用情况，包括文件系统安装的目录名、块设备名、总 </p>
-<pre><code>字节数、已用字节数、剩余字节数占用百分比。 &lt;br&gt;
-</code></pre><p>选项： <br><br>-a：显示全部的档案系统和各分割区的磁盘使用情形 <br><br>-i：显示i -nodes的使用量 <br><br>-k：大小用k来表示 (默认值) <br><br>-t：显示某一个档案系统的所有分割区磁盘使用量 <br><br>-x：显示不是某一个档案系统的所有分割区磁盘使用量 <br><br>-T：显示每个分割区所属的档案系统名称 <br><br>-h: 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式。 <br><br>注释： <br><br>例如：% df -hi <br></p>
-</li>
-<li><p><strong>查询档案或目录的磁盘使用空间</strong> <br><br>命令：du (disk usage) <br><br>格式：du [option] [filename] <br><br>功能：以指定的目录下的子目录为单位，显示每个目录内所有档案所占用的磁盘空间大小 <br><br>选项： <br><br>-a：显示全部目录和其次目录下的每个档案所占的磁盘空间 <br><br>-b：大小用bytes来表示 (默认值为k bytes) <br><br>-c：最后再加上总计 (默认值) <br><br>-s：只显示各档案大小的总合 <br><br>-x：只计算同属同一个档案系统的档案 <br><br>-L：计算所有的档案大小 <br><br>-h: 表示档案系统大小使用 GB、MB 等易读的格式。 <br><br>例如：% du -a <br><br>% du -sh /etc 只显示该目录的总合 <br><br>% du /etc | sort -nr | more 统计结果用sort 指令进行排序，<br>sort 的参数 -nr 表示要以数字排序法进行反向排序。 <br></p>
 </li>
 <li><p><strong>显示进程</strong> <br><br>命令：ps <br><br>格式：ps [option] <br><br>功能：显示系统中进程的信息。包括进程ID、控制进程终端、执行时间和命令。 <br><br>选项： <br><br>-a 显示所有进程信息 <br><br>-U uidlist 列出这个用户的所有进程 <br></p>
 <pre><code>-e 显示当前运行的每一个进程信息 &lt;br&gt;
 -f 显示一个完整的列表 &lt;br&gt;
-</code></pre><p>-x 显示包括没有终端控制的进程状况 。 <br><br>注释： <br><br>例如：% ps -ef <br><br><br>% ps -aux 然后再利用一个管道符号导向到grep去查找特定的进程,然后再对特定的进程进行操作。 <br></p>
+</code></pre><p>-x 显示包括没有终端控制的进程状况 。 <br><br>注释： <br><br>例如：% ps -ef <br><br><br>% ps -aux 然后再利用一个管道符号导向到grep去查找特定的进程,然后再对特定的进程进行操作。 <br><br>ps -ef|grep java|grep -v grep<br></p>
 </li>
 <li><p><strong>终止进程</strong><br>命令：kill <br><br>格式：kill [option] pid <br><br>功能：向指定的进程送信号或终止进程。kill指令的用途是送一个signal给某一个process，<br>因为大部份送的都是用来杀掉 process 的 SIGKILL 或 SIGHUP ，因此称为 kill  <br><br>选项：-9  强行终止进程 <br><br>注释：pid标示进程号，可由ps命令得到。 <br><br>例如：% kill -9 pid <br><br>你也可以用 kill -l 来察看可代替 signal 号码的数目字。kill 的详细情形请参阅 man kill。 <br></p>
+</li>
+<li><p><strong>查询档案或目录的磁盘使用空间</strong> <br><br>命令：du (disk usage) <br><br>格式：du [option] [filename] <br><br>功能：以指定的目录下的子目录为单位，显示每个目录内所有档案所占用的磁盘空间大小 <br><br>选项： <br><br>-a：显示全部目录和其次目录下的每个档案所占的磁盘空间 <br><br>-b：大小用bytes来表示 (默认值为k bytes) <br><br>-c：最后再加上总计 (默认值) <br><br>-s：只显示各档案大小的总合 <br><br>-x：只计算同属同一个档案系统的档案 <br><br>-L：计算所有的档案大小 <br><br>-h: 表示档案系统大小使用 GB、MB 等易读的格式。 <br><br>例如：% du -a <br><br>% du -sh /etc 只显示该目录的总合 <br><br>% du /etc | sort -nr | more 统计结果用sort 指令进行排序，<br>sort 的参数 -nr 表示要以数字排序法进行反向排序。<br><br></p>
+</li>
+<li><p><strong>统计文件字数</strong> <br><br>命令：wc [option] filename <br><br>功能：统计文件中的文件行数、字数和字符数。 <br><br>选项：<br>-l 统计文件的行数 <br></p>
+<pre><code>-w 统计文件的单词数 &lt;br&gt;
+-c 统计文件的字符数 &lt;br&gt;
+</code></pre><p>注释：若缺省文件名则指标准输入 <br><br>例如：% wc -c ./test/run.sh</p>
+</li>
+<li><p><strong>显示磁盘空间</strong> <br><br>命令：df (disk free) <br><br>格式：df [option] <br><br>功能：显示磁盘空间的使用情况，包括文件系统安装的目录名、块设备名、总 </p>
+<pre><code>字节数、已用字节数、剩余字节数占用百分比。 &lt;br&gt;
+</code></pre><p>选项： <br><br>-a：显示全部的档案系统和各分割区的磁盘使用情形 <br><br>-i：显示i -nodes的使用量 <br><br>-k：大小用k来表示 (默认值) <br><br>-t：显示某一个档案系统的所有分割区磁盘使用量 <br><br>-x：显示不是某一个档案系统的所有分割区磁盘使用量 <br><br>-T：显示每个分割区所属的档案系统名称 <br><br>-h: 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式。 <br><br>注释： <br><br>例如：% df -hi <br></p>
 </li>
 <li><p><strong>查看自己的IP地址</strong> <br><br>命令：ifconfig <br><br>格式：ifconfig -a <br></p>
 </li>
