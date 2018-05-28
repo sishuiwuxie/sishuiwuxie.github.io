@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Fri May 25 2018 16:39:12 GMT+0800">
-        <meta property="article:modified_time" content="Fri May 25 2018 17:15:33 GMT+0800">
+        <meta property="article:modified_time" content="Mon May 28 2018 15:50:58 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "http://www.muer.link/操作系统并发.html",
     "headline": "操作系统并发",
     "datePublished": "Fri May 25 2018 16:39:12 GMT+0800",
-    "dateModified": "Fri May 25 2018 17:15:33 GMT+0800",
+    "dateModified": "Mon May 28 2018 15:50:58 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -509,17 +509,121 @@
 <p>周转时间: 从任务开始到任务结束的时间</p>
 <p>CPU任务可以分为交互式任务和批处理任务，调度最终的目标是合理的使用CPU，使得交互式任务的响应时间尽可能短，用户不至于感到延迟，同时使得批处理任务的周转时间尽可能短，减少用户等待的时间。</p>
 <h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><ol>
-<li><p>FIFO或First Come, First Served (FCFS)<br><br>调度的顺序就是任务到达就绪队列的顺序。<br><br>公平、简单(FIFO队列)、非抢占、不适合交互式。未考虑任务特性，平均等待时间可以缩短</p>
+<li><p>FIFO或First Come, First Served (FCFS)<br><br>调度的顺序就是任务到达就绪队列的顺序。<br><br>公平、简单(FIFO队列)、非抢占、不适合交互式。未考虑任务特性，平均等待时间可以缩短<br><img src="http://c.biancheng.net/cpp/uploads/allimg/140629/1-140629155KQ11.jpg" alt=""></p>
 </li>
-<li><p>Shortest Job First (SJF)<br><br>最短的作业(CPU区间长度最小)最先调度。<br><br>可以证明，SJF可以保证最小的平均等待时间。<br></p>
-</li>
-<li></li>
+<li><p>Shortest Job First (SJF)<br><br>最短的作业(CPU区间长度最小)最先调度。<br><br>可以证明，SJF可以保证最小的平均等待时间。<br><br>-Shortest Remaining Job First (SRJF)<br>SJF的可抢占版本，比SJF更有优势。<br><br><br>SJF(SRJF): 如何知道下一CPU区间大小？根据历史进行预测: 指数平均法。</p>
+<ol>
+<li>优先权调度<br>每个任务关联一个优先权，调度优先权最高的任务。<br><br>注意：优先权太低的任务一直就绪，得不到运行，出现“饥饿”现象。<br><br>FCFS是RR的特例，SJF是优先权调度的特例。这些调度算法都不适合于交互式系统。<br></li>
+<li>Round-Robin(RR)<br><br>设置一个时间片，按时间片来轮转调度（“轮叫”算法）<br><br>优点: 定时有响应，等待时间较短；缺点: 上下文切换次数较多；<br><br>如何确定时间片？<br><br>时间片太大，响应时间太长；吞吐量变小，周转时间变长；当时间片过长时，退化为FCFS。<br></li>
+<li>多级队列调度<br></li>
 </ol>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<ul>
+<li>按照一定的规则建立多个进程队列<br></li>
+<li>不同的队列有固定的优先级（高优先级有抢占权）<br></li>
+<li>不同的队列可以给不同的时间片和采用不同的调度方法<br><br>存在问题1：没法区分I/O bound和CPU bound；<br><br>存在问题2：也存在一定程度的“饥饿”现象；<br></li>
+</ul>
+<ol>
+<li>多级反馈队列<br><br>在多级队列的基础上，任务可以在队列之间移动，更细致的区分任务。<br><br>可以根据“享用”CPU时间多少来移动队列，阻止“饥饿”。<br><br>最通用的调度算法，多数OS都使用该方法或其变形，如UNIX、Windows等。<br></li>
+</ol>
+</li>
+</ol>
+<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h4 id="临界资源与临界区"><a href="#临界资源与临界区" class="headerlink" title="临界资源与临界区"></a>临界资源与临界区</h4><p>在操作系统中，进程是占有资源的最小单位（线程可以访问其所在进程内的所有资源，但线程本身并不占有资源或仅仅占有一点必须资源）。但对于某些资源来说，其在同一时间只能被一个进程所占用。这些一次只能被一个进程所占用的资源就是所谓的临界资源。典型的临界资源比如物理上的打印机，或是存在硬盘或内存中被多个进程所共享的一些变量和数据等(如果这类资源不被看成临界资源加以保护，那么很有可能造成丢数据的问题)。</p>
+<p>对于临界资源的访问，必须是互斥进行。也就是当临界资源被占用时，另一个申请临界资源的进程会被阻塞，直到其所申请的临界资源被释放。而进程内访问临界资源的代码被成为临界区。</p>
+<p>对于临界区的访问过程分为四个部分：</p>
+<ul>
+<li>进入区:查看临界区是否可访问，如果可以访问，则转到步骤二，否则进程会被阻塞</li>
+<li>临界区:在临界区做操作</li>
+<li>退出区:清除临界区被占用的标志</li>
+<li>剩余区：进程与临界区不相关部分的代码</li>
+</ul>
+<p>解决临界区问题可能的方法：</p>
+<ol>
+<li>一般软件方法</li>
+<li>关中断方法</li>
+<li>硬件原子指令方法</li>
+<li>信号量方法</li>
+</ol>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>信号量是一个确定的二元组（s，q），其中s是一个具有非负初值的整形变量，q是一个初始状态为空的队列，整形变量s表示系统中某类资源的数目：</p>
+<ul>
+<li>当其值 ≥ 0 时，表示系统中当前可用资源的数目</li>
+<li>当其值 ＜ 0 时，其绝对值表示系统中因请求该类资源而被阻塞的进程数目</li>
+</ul>
+<p>除信号量的初值外，信号量的值仅能由P操作和V操作更改，操作系统利用它的状态对进程和资源进行管理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.value = s.value - 1；  /*可理解为占用1个资源，若原来就没有则记帐“欠”1个*/</span><br></pre></td></tr></table></figure>
+<p>若s.value ≥ 0，则进程继续执行，否则（即s.value &lt; 0），则进程被阻塞，并将该进程插入到信号量s的等待队列s.queue中</p>
+<p>说明：实际上，P操作可以理解为分配资源的计数器，或是使进程处于等待状态的控制指令</p>
+<p>V操作：</p>
+<p>V操作记为V(s)，其中s为一信号量，它执行时，主要完成以下动作：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.value = s.value + 1；/*可理解为归还1个资源，若原来就没有则意义是用此资源还1个欠帐*/</span><br></pre></td></tr></table></figure>
+<p>若s.value &gt; 0，则进程继续执行，否则（即s.value ≤ 0）,则从信号量s的等待队s.queue中移出第一个进程，使其变为就绪状态，然后返回原进程继续执行</p>
+<p>说明：实际上，V操作可以理解为归还资源的计数器，或是唤醒进程使其处于就绪状态的控制指令</p>
+<p>信号量方法实现：生产者 − 消费者互斥与同步控制</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">semaphore fullBuffers = 0; /*仓库中已填满的货架个数*/</span><br><span class="line">semaphore emptyBuffers = BUFFER_SIZE;/*仓库货架空闲个数*/</span><br><span class="line">semaphore mutex = 1; /*生产-消费互斥信号*/</span><br><span class="line"></span><br><span class="line">Producer() </span><br><span class="line">&#123; </span><br><span class="line">    while(True)</span><br><span class="line">    &#123;  </span><br><span class="line">       /*生产产品item*/</span><br><span class="line">       emptyBuffers.P(); </span><br><span class="line">       mutex.P(); </span><br><span class="line">       /*item存入仓库buffer*/</span><br><span class="line">       mutex.V();</span><br><span class="line">       fullBuffers.V();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Consumer() </span><br><span class="line">&#123;</span><br><span class="line">    while(True)</span><br><span class="line">    &#123;</span><br><span class="line">        fullBuffers.P(); </span><br><span class="line">        mutex.P();    </span><br><span class="line">        /*从仓库buffer中取产品item*/</span><br><span class="line">        mutex.V();</span><br><span class="line">        emptyBuffers.V();</span><br><span class="line">        /*消费产品item*/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用pthread实现的生产者－消费者模型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">#include <span class="tag">&lt;<span class="name">pthread.h</span>&gt;</span></span><br><span class="line">#include <span class="tag">&lt;<span class="name">stdio.h</span>&gt;</span></span><br><span class="line"></span><br><span class="line">#include <span class="tag">&lt;<span class="name">stdlib.h</span>&gt;</span></span><br><span class="line">#define BUFFER_SIZE 10</span><br><span class="line"></span><br><span class="line">static int buffer[BUFFER_SIZE] = &#123; 0 &#125;;</span><br><span class="line">static int count = 0;</span><br><span class="line"></span><br><span class="line">pthread_t consumer, producer;</span><br><span class="line">pthread_cond_t cond_producer, cond_consumer;</span><br><span class="line">pthread_mutex_t mutex;</span><br><span class="line"></span><br><span class="line">void* consume(void* _)&#123;</span><br><span class="line">  while(1)&#123;</span><br><span class="line">    pthread_mutex_lock(&amp;mutex);</span><br><span class="line">    while(count == 0)&#123;</span><br><span class="line">      printf("empty buffer, wait producer\n");</span><br><span class="line">      pthread_cond_wait(&amp;cond_consumer, &amp;mutex); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    count--;</span><br><span class="line">    printf("consume a item\n");</span><br><span class="line">    pthread_mutex_unlock(&amp;mutex);</span><br><span class="line">    pthread_cond_signal(&amp;cond_producer);</span><br><span class="line">    //pthread_mutex_unlock(&amp;mutex);</span><br><span class="line">  &#125;</span><br><span class="line">  pthread_exit(0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void* produce(void* _)&#123;</span><br><span class="line">  while(1)&#123;</span><br><span class="line">    pthread_mutex_lock(&amp;mutex);</span><br><span class="line">    while(count == BUFFER_SIZE)&#123;</span><br><span class="line">      printf("full buffer, wait consumer\n");</span><br><span class="line">      pthread_cond_wait(&amp;cond_producer, &amp;mutex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    count++;</span><br><span class="line">    printf("produce a item.\n");</span><br><span class="line">    pthread_mutex_unlock(&amp;mutex);</span><br><span class="line">    pthread_cond_signal(&amp;cond_consumer);</span><br><span class="line">    //pthread_mutex_unlock(&amp;mutex);</span><br><span class="line">  &#125;</span><br><span class="line">  pthread_exit(0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">  pthread_mutex_init(&amp;mutex, NULL);</span><br><span class="line">  pthread_cond_init(&amp;cond_consumer, NULL);</span><br><span class="line">  pthread_cond_init(&amp;cond_producer, NULL);</span><br><span class="line"></span><br><span class="line">  int err = pthread_create(&amp;consumer, NULL, consume, (void*)NULL);</span><br><span class="line">  if(err != 0)&#123;</span><br><span class="line">    printf("consumer thread created failed\n");</span><br><span class="line">    exit(1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  err = pthread_create(&amp;producer, NULL, produce, (void*)NULL);</span><br><span class="line">  if(err != 0)&#123;</span><br><span class="line">    printf("producer thread created failed\n");</span><br><span class="line">    exit(1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  pthread_join(producer, NULL);</span><br><span class="line">  pthread_join(consumer, NULL);  </span><br><span class="line"></span><br><span class="line">  //sleep(1000);</span><br><span class="line"></span><br><span class="line">  pthread_cond_destroy(&amp;cond_consumer);</span><br><span class="line">  pthread_cond_destroy(&amp;cond_producer);</span><br><span class="line">  pthread_mutex_destroy(&amp;mutex);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>死锁: 多个进程因循环等待资源而造成无法执行的现象。</p>
+<p>死锁会造成进程无法执行，同时会造成系统资源的极大浪费(资源无法释放)。</p>
+<p>死锁产生的4个必要条件：</p>
+<ul>
+<li>互斥使用(Mutual exclusion)</li>
+</ul>
+<p>指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
+<ul>
+<li>不可抢占(No preemption)</li>
+</ul>
+<p>指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</p>
+<ul>
+<li>请求和保持(Hold and wait)</li>
+</ul>
+<p>指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放。</p>
+<ul>
+<li>循环等待(Circular wait) 指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</li>
+</ul>
+<p>死锁避免——银行家算法</p>
+<p>思想: 判断此次请求是否造成死锁若会造成死锁，则拒绝该请求</p>
+<h4 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h4><p>本地进程间通信的方式有很多，可以总结为下面四类：</p>
+<ul>
+<li>消息传递（管道、FIFO、消息队列）</li>
+<li>同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量）</li>
+<li>共享内存（匿名的和具名的）</li>
+<li>远程过程调用（Solaris门和Sun RPC）</li>
+</ul>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>多进程解决了前面提到的多任务问题。然而很多时候不同的程序需要共享同样的资源（文件，信号量等），如果全都使用进程的话会导致切换的成本很高，造成 CPU 资源的浪费。于是就出现了线程的概念。</p>
+<p>线程，有时被称为轻量级进程(Lightweight Process，LWP），是程序执行流的最小单元。一个标准的线程由线程ID，当前指令指针(PC），寄存器集合和堆栈组成。</p>
+<p>线程具有以下属性：</p>
+<ol>
+<li><p>轻型实体 线程中的实体基本上不拥有系统资源，只是有一点必不可少的、能保证独立运行的资源。线程的实体包括程序、数据和TCB。线程是动态概念，它的动态特性由线程控制块TCB（Thread Control Block）描述。</p>
+</li>
+<li><p>独立调度和分派的基本单位。<br><br>在多线程OS中，线程是能独立运行的基本单位，因而也是独立调度和分派的基本单位。由于线程很“轻”，故线程的切换非常迅速且开销小（在同一进程中的）。</p>
+</li>
+<li><p>可并发执行。 在一个进程中的多个线程之间，可以并发执行，甚至允许在一个进程中所有线程都能并发执行；同样，不同进程中的线程也能并发执行，充分利用和发挥了处理机与外围设备并行工作的能力。</p>
+</li>
+<li><p>共享进程资源。 在同一进程中的各个线程，都可以共享该进程所拥有的资源，这首先表现在：所有线程都具有相同的地址空间（进程的地址空间），这意味着，线程可以访问该地址空间的每一个虚地址；此外，还可以访问进程所拥有的已打开文件、定时器、信号量等。由于同一个进程内的线程共享内存和文件，所以线程之间互相通信不必调用内核。 线程共享的环境包括：进程代码段、进程的公有数据(利用这些共享的数据，线程很容易的实现相互之间的通讯)、进程打开的文件描述符、信号的处理器、进程的当前目录和进程用户ID与进程组ID。</p>
+</li>
+</ol>
+<h4 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h4><p>协程，又称微线程，纤程。英文名Coroutine。</p>
+<p>协程可以理解为用户级线程，协程和线程的区别是：线程是抢占式的调度，而协程是协同式的调度，协程避免了无意义的调度，由此可以提高性能，但也因此，程序员必须自己承担调度的责任，同时，协程也失去了标准线程使用多CPU的能力。</p>
+<p>使用协程(python)改写生产者-消费者问题：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def consumer():</span><br><span class="line">    r = ''</span><br><span class="line">    while True:</span><br><span class="line">        n = yield r</span><br><span class="line">        if not n:</span><br><span class="line">            return</span><br><span class="line">        print('[CONSUMER] Consuming %s...' % n)</span><br><span class="line">        time.sleep(1)</span><br><span class="line">        r = '200 OK'</span><br><span class="line"></span><br><span class="line">def produce(c):</span><br><span class="line">    next(c)                   #python 3.x中使用next(c)，python 2.x中使用c.next()</span><br><span class="line">    n = 0</span><br><span class="line">    while n <span class="tag">&lt; <span class="attr">5:</span></span></span><br><span class="line"><span class="tag">        <span class="attr">n</span> = <span class="string">n</span> + <span class="attr">1</span></span></span><br><span class="line"><span class="tag">        <span class="attr">print</span>('[<span class="attr">PRODUCER</span>] <span class="attr">Producing</span> %<span class="attr">s...</span>' % <span class="attr">n</span>)</span></span><br><span class="line"><span class="tag">        <span class="attr">r</span> = <span class="string">c.send(n)</span></span></span><br><span class="line"><span class="tag">        <span class="attr">print</span>('[<span class="attr">PRODUCER</span>] <span class="attr">Consumer</span> <span class="attr">return:</span> %<span class="attr">s</span>' % <span class="attr">r</span>)</span></span><br><span class="line"><span class="tag">    <span class="attr">c.close</span>()</span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag"><span class="attr">if</span> <span class="attr">__name__</span>==<span class="string">'__main__'</span><span class="attr">:</span></span></span><br><span class="line"><span class="tag">    <span class="attr">c</span> = <span class="string">consumer()</span></span></span><br><span class="line"><span class="tag">    <span class="attr">produce</span>(<span class="attr">c</span>)</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，使用协程不再需要显式地对锁进行操作。</p>
+<h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>IO多路复用是指内核一旦发现进程指定的一个或者多个IO条件准备读取，它就通知该进程。IO多路复用适用如下场合：</p>
+<ol>
+<li>当客户处理多个描述字时（一般是交互式输入和网络套接口），必须使用I/O复用。</li>
+<li>当一个客户同时处理多个套接口时，而这种情况是可能的，但很少出现。</li>
+<li>如果一个TCP服务器既要处理监听套接口，又要处理已连接套接口，一般也要用到I/O复用。</li>
+<li>如果一个服务器即要处理TCP，又要处理UDP，一般要使用I/O复用。</li>
+<li>如果一个服务器要处理多个服务或多个协议，一般要使用I/O复用。</li>
+</ol>
+<p>与多进程和多线程技术相比，I/O多路复用技术的最大优势是系统开销小，系统不必创建进程/线程，也不必维护这些进程/线程，从而大大减小了系统的开销。</p>
+<h4 id="常见的IO复用实现"><a href="#常见的IO复用实现" class="headerlink" title="常见的IO复用实现"></a>常见的IO复用实现</h4><ul>
+<li>select(Linux/Windows/BSD)</li>
+<li>epoll(Linux)</li>
+<li>kqueue(BSD/Mac OS X)<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2></li>
 <li><a href="http://www.liuhaihua.cn/archives/386465.html" title="Java并发原理无废话指南" target="_blank" rel="noopener">Java并发原理无废话指南</a></li>
 <li><a href="https://hit-alibaba.github.io/interview/basic/arch/Concurrency.html" title="并发技术" target="_blank" rel="noopener">并发技术</a></li>
 <li><a href="http://www.subond.com/pages/2016/06/17/process-management-in-linux.html" title="Linux中的进程管理" target="_blank" rel="noopener">Linux中的进程管理</a></li>
 <li><a href="http://kjwy.5any.com/czxt/content/czxt03/index030203.htm" title="状态转换" target="_blank" rel="noopener">状态转换</a></li>
+<li><a href="http://c.biancheng.net/cpp/html/2595.html" title="操作系统典型调度算法" target="_blank" rel="noopener">操作系统典型调度算法</a></li>
 </ul>
 
             
