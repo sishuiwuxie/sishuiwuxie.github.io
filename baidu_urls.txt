@@ -1,5 +1,5 @@
+http://www.muer.link/内存管理.html
 http://www.muer.link/操作系统并发.html
 http://www.muer.link/计算机系统基础.html
 http://www.muer.link/体系结构基础.html
 http://www.muer.link/LINUX指令.html
-http://www.muer.link/计算机网络-Socket.html
