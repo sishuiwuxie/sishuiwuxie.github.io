@@ -43,7 +43,7 @@
     
     <title>
         
-            体系结构基础 | 
+            计算机系统基础 | 
         
         慕尔小站
     </title>
@@ -219,7 +219,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="慕尔小站">
-    <meta name="msapplication-starturl" content="http://www.muer.link/体系结构基础.html">
+    <meta name="msapplication-starturl" content="http://www.muer.link/系统——计算机系统基础.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="慕尔小站">
@@ -234,16 +234,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://www.muer.link/体系结构基础.html">
+    <meta property="og:url" content="http://www.muer.link/系统——计算机系统基础.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="体系结构基础 | 慕尔小站">
+    <meta property="og:title" content="计算机系统基础 | 慕尔小站">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Thu May 24 2018 10:59:11 GMT+0800">
-        <meta property="article:modified_time" content="Thu May 24 2018 16:10:15 GMT+0800">
+        <meta property="article:published_time" content="Thu May 24 2018 17:11:45 GMT+0800">
+        <meta property="article:modified_time" content="Thu May 24 2018 17:38:23 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -251,7 +251,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://www.muer.link/体系结构基础.html" />
+        <link rel="canonical" href="http://www.muer.link/系统——计算机系统基础.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -263,10 +263,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://www.muer.link/体系结构基础.html",
-    "headline": "体系结构基础",
-    "datePublished": "Thu May 24 2018 10:59:11 GMT+0800",
-    "dateModified": "Thu May 24 2018 16:10:15 GMT+0800",
+    "mainEntityOfPage": "http://www.muer.link/系统——计算机系统基础.html",
+    "headline": "计算机系统基础",
+    "datePublished": "Thu May 24 2018 17:11:45 GMT+0800",
+    "dateModified": "Thu May 24 2018 17:38:23 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -470,56 +470,32 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                体系结构基础
+                计算机系统基础
             </p>
-            <h2 id="冯·诺依曼体系结构"><a href="#冯·诺依曼体系结构" class="headerlink" title="冯·诺依曼体系结构"></a>冯·诺依曼体系结构</h2><blockquote>
-<p>美籍匈牙利数学家冯·诺依曼于1946年提出存储程序原理，把程序本身当作数据来对待，程序和该程序处理的数据用同样的方式储存。 冯·诺依曼体系结构冯·诺依曼理论的要点是：计算机的数制采用二进制；计算机应该按照程序顺序执行。人们把冯·诺依曼的这个理论称为冯·诺依曼体系结构。</p>
-</blockquote>
+            <h2 id="操作系统提供的服务"><a href="#操作系统提供的服务" class="headerlink" title="操作系统提供的服务"></a>操作系统提供的服务</h2><p>操作系统的五大功能，分别为：作业管理、文件管理、存储管理、输入输出设备管理、进程及处理机管理</p>
+<h2 id="中断与系统调用"><a href="#中断与系统调用" class="headerlink" title="中断与系统调用"></a>中断与系统调用</h2><h3 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h3><p>所谓的中断就是在计算机执行程序的过程中，由于出现了某些特殊事情，使得CPU暂停对程序的执行，转而去执行处理这一事件的程序。等这些特殊事情处理完之后再回去执行之前的程序。中断一般分为三类：</p>
 <ol>
-<li><p>计算机处理的数据和指令一律用二进制数表示</p>
-</li>
-<li><p>顺序执行程序</p>
-</li>
-<li><p>计算机运行过程中，把要执行的程序和处理的数据首先存入主存储器（内存），计算机执行程序时，将自动地并按顺序从主存储器中取出指令一条一条地执行，这一概念称作顺序执行程序。</p>
-</li>
-<li><p>计算机硬件由运算器、控制器、存储器、输入设备和输出设备五大部分组成。</p>
-</li>
+<li>由计算机硬件异常或故障引起的中断，称为内部异常中断；</li>
+<li>由程序中执行了引起中断的指令而造成的中断，称为软中断（这也是和我们将要说明的系统调用相关的中断）；</li>
+<li>由外部设备请求引起的中断，称为外部中断。简单来说，对中断的理解就是对一些特殊事情的处理。</li>
 </ol>
-<h2 id="数据的机内表示"><a href="#数据的机内表示" class="headerlink" title="数据的机内表示"></a>数据的机内表示</h2><h3 id="二进制表示"><a href="#二进制表示" class="headerlink" title="二进制表示"></a>二进制表示</h3><ol>
-<li><p><strong>机器数</strong><br><br>由于计算机中符号和数字一样,都必须用二进制数串来表示,因此,正负号也必须用0、1来表示。<br><br>用最高位0表示正、1表示负, 这种正负号数字化的机内表示形式就称为“机器数”,而相应的机器外部用正负号表示的数称为“真值”,将一个真值表示成二进制字串的机器数的过程就称为编码。<br></p>
-</li>
-<li><p><strong>原码</strong><br><br>原码就是符号位加上真值的绝对值, 即用第一位表示符号, 其余位表示值. 比如如果是8位二进制:<br><br>[+1]原 = 0000 0001<br><br>[-1]原 = 1000 0001<br><br>第一位是符号位. 因为第一位是符号位, 所以8位二进制数的取值范围就是:<br><br>[1111 1111 , 0111 1111]<br><br>即<br><br>[-127 , 127]<br><br>原码是人脑最容易理解和计算的表示方式<br></p>
-</li>
-<li><p><strong>反码</strong><br><br>反码的表示方法是:<br><br>正数的反码是其本身<br><br>[+1] = [00000001]原 = [00000001]反<br><br>负数的反码是在其原码的基础上, 符号位不变，其余各个位取反.<br><br>[-1] = [10000001]原 = [11111110]反<br><br>可见如果一个反码表示的是负数, 人脑无法直观的看出来它的数值. 通常要将其转换成原码再计算<br></p>
-</li>
-<li><p><strong>补码</strong><br><br>补码的表示方法是:<br><br>正数的补码就是其本身<br><br>负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1。 (即在反码的基础上+1)<br><br>[+1] = [00000001]原 = [00000001]反 = [00000001]补<br><br>[-1] = [10000001]原 = [11111110]反 = [11111111]补<br><br>对于负数, 补码表示方式也是人脑无法直观看出其数值的. 通常也需要转换成原码在计算其数值.</p>
-</li>
-<li><p><strong>定点数与浮点数</strong><br><br>定点数是小数点固定的数。在计算机中没有专门表示小数点的位，小数点的位置是约定默认的。一般固定在机器数的最低位之后，或是固定在符号位之后。前者称为定点纯整数，后者称为定点纯小数。<br><br>定点数表示法简单直观，但是数值表示的范围太小，运算时容易产生溢出。<br><br>浮点数是小数点的位置可以变动的数。为增大数值表示范围，防止溢出，采用浮点数表示法。浮点表示法类似于十进制中的科学计数法。<br><br>在计算机中通常把浮点数分成阶码和尾数两部分来表示，其中阶码一般用补码定点整数表示，尾数一般用补码或原码定点小数表示。为保证不损失有效数字，对尾数进行规格化处理，也就是平时所说的科学记数法，即保证尾数的最高位为1，实际数值通过阶码进行调整<br><br>阶符表示指数的符号位、阶码表示幂次、数符表示尾数的符号位、尾数表示规格化后的小数值。<br><br><br>N = 尾数×基数阶码（指数）</p>
-</li>
+<p>与中断紧密相连的一个概念就是中断处理程序了。当中断发生的时候，系统需要去对中断进行处理，对这些中断的处理是由操作系统内核中的特定函数进行的，这些处理中断的特定的函数就是我们所说的中断处理程序了。</p>
+<p>另一个与中断紧密相连的概念就是中断的优先级。中断的优先级说明的是当一个中断正在被处理的时候，处理器能接受的中断的级别。中断的优先级也表明了中断需要被处理的紧急程度。每个中断都有一个对应的优先级，当处理器在处理某一中断的时候，只有比这个中断优先级高的中断可以被处理器接受并且被处理。优先级比这个当前正在被处理的中断优先级要低的中断将会被忽略。</p>
+<p>典型的中断优先级如下所示：</p>
+<p>机器错误 &gt; 时钟 &gt; 磁盘 &gt; 网络设备 &gt;  终端 &gt; 软件中断</p>
+<p>当发生软件中断时，其他所有的中断都可能发生并被处理；但当发生磁盘中断时，就只有时钟中断和机器错误中断能被处理了。</p>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>在讲系统调用之前，先说下进程的执行在系统上的两个级别：用户级和核心级，也称为用户态和系统态(user mode and kernel mode)。</p>
+<p>程序的执行一般是在用户态下执行的，但当程序需要使用操作系统提供的服务时，比如说打开某一设备、创建文件、读写文件等，就需要向操作系统发出调用服务的请求，这就是系统调用。</p>
+<p>Linux系统有专门的函数库来提供这些请求操作系统服务的入口，这个函数库中包含了操作系统所提供的对外服务的接口。当进程发出系统调用之后，它所处的运行状态就会由用户态变成核心态。但这个时候，进程本身其实并没有做什么事情，这个时候是由内核在做相应的操作，去完成进程所提出的这些请求。</p>
+<p>系统调用和中断的关系就在于，当进程发出系统调用申请的时候，会产生一个软件中断。产生这个软件中断以后，系统会去对这个软中断进行处理，这个时候进程就处于核心态了。</p>
+<p>那么用户态和核心态之间的区别是什么呢？（以下区别摘至《UNIX操作系统设计》）</p>
+<ol>
+<li>用户态的进程能存取它们自己的指令和数据，但不能存取内核指令和数据（或其他进程的指令和数据）。然而，核心态下的进程能够存取内核和用户地址</li>
+<li>某些机器指令是特权指令，在用户态下执行特权指令会引起错误</li>
 </ol>
-<h2 id="位-Bit-、字节-Byte-、字-Word"><a href="#位-Bit-、字节-Byte-、字-Word" class="headerlink" title="位(Bit)、字节(Byte)、字(Word)"></a>位(Bit)、字节(Byte)、字(Word)</h2><p>位：”位(bit)”是电子计算机中最小的数据单位。每一位的状态只能是0或1。</p>
-<p>字节：8个二进制位构成1个”字节(Byte)”，它是存储空间的基本计量单位。1个字节可以储存1个英文字母或者半个汉字，换句话说，1个汉字占据2个字节的存储空间。</p>
-<p>字：”字”由若干个字节构成，字的位数叫做字长，不同档次的机器有不同的字长。例如一台8位机，它的1个字就等于1个字节，字长为8位。如果是一台16位机，那么，它的1个字就由2个字节构成，字长为16位。字是计算机进行数据处理和运算的单位。</p>
-<h2 id="字节序"><a href="#字节序" class="headerlink" title="字节序"></a>字节序</h2><p>字节顺序是指占内存多于一个字节类型的数据在内存中的存放顺序，通常有小端、大端两种字节顺序。</p>
-<p>小端字节序指低字节数据存放在内存低地址处，高字节数据存放在内存高地址处；</p>
-<p>大端字节序是高字节数据存放在低地址处，低字节数据存放在高地址处。</p>
-<p>基于X86平台的PC机是小端字节序的，而有的嵌入式平台则是大端字节序的。所有网络协议也都是采用big endian的方式来传输数据的。所以有时我们也会把big endian方式称之为网络字节序。</p>
-<p>比如数字0x12345678在两种不同字节序CPU中的存储顺序如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Big Endian</span><br><span class="line">低地址                                            高地址</span><br><span class="line">----------------------------------------------------&gt;</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|     <span class="number">12</span>     |      <span class="number">34</span>    |     <span class="number">56</span>      |     <span class="number">78</span>    |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line"></span><br><span class="line">Little Endian</span><br><span class="line">低地址                                            高地址</span><br><span class="line">----------------------------------------------------&gt;</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|     <span class="number">78</span>     |      <span class="number">56</span>    |     <span class="number">34</span>      |     <span class="number">12</span>    |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
-<p>从上面两图可以看出，采用Big Endian方式存储数据是符合我们人类的思维习惯的。</p>
-<p>联合体union的存放顺序是所有成员都从低地址开始存放，利用该特性，就能判断CPU对内存采用Little-endian还是Big-endian模式读写。</p>
-<p>示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">union test&#123;  </span><br><span class="line">    <span class="keyword">short</span>  i;  </span><br><span class="line">    <span class="keyword">char</span> str[sizeof(<span class="keyword">short</span>)];  </span><br><span class="line">&#125;tt;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    tt.i = <span class="number">0x0102</span>;  </span><br><span class="line">    <span class="keyword">if</span>(sizeof(<span class="keyword">short</span>) == <span class="number">2</span>)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>(tt.str[<span class="number">0</span>] == <span class="number">1</span> &amp;&amp; tt.str[<span class="number">1</span>] == <span class="number">2</span>)  </span><br><span class="line">                printf(<span class="string">"大端字节序"</span>);  </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tt.str[<span class="number">0</span>] = <span class="number">2</span> &amp;&amp; tt.str[<span class="number">1</span>] == <span class="number">1</span>)  </span><br><span class="line">                printf(<span class="string">"小端字节序"</span>);  </span><br><span class="line">            <span class="keyword">else</span>  </span><br><span class="line">                printf(<span class="string">"结果未知"</span>);  </span><br><span class="line">         &#125;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        printf(<span class="string">"sizof(short)=%d,不等于2"</span>,sizeof(<span class="keyword">short</span>));  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字节对齐"><a href="#字节对齐" class="headerlink" title="字节对齐"></a>字节对齐</h2><p>现代计算机中内存空间都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始，但实际情况是在访问特定类型变量的时候经常在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就是对齐。</p>
-<p>为什么要进行字节对齐？</p>
-<p>某些平台只能在特定的地址处访问特定类型的数据;<br>最根本的原因是效率问题，字节对齐能提⾼存取数据的速度。<br>比如有的平台每次都是从偶地址处读取数据,对于一个int型的变量,若从偶地址单元处存放,则只需一个读取周期即可读取该变量，但是若从奇地址单元处存放,则需要2个读取周期读取该变量。</p>
-<p>字节对齐的原则</p>
-<p>数据成员对齐规则：结构(struct)(或联合(union))的数据成员，第一个数据成员放在 offset 为0的地方，以后每个数据成员存储的起始位置要从该成员大小或者成员的子成员大小（只要该成员有子成员，比如说是数组，结构体等）的整数倍开始(比如int在32位机为4字节,则要从4的整数倍地址开始存储。</p>
-<p>结构体作为成员:如果一个结构里有某些结构体成员,则结构体成员要从其内部最大元素大小的整数倍地址开始存储。(struct a里存有struct b,b里有char,int ,double等元素,那b应该从8的整数倍开始存储。)</p>
-<p>收尾工作:结构体的总大小，也就是sizeof的结果，必须是其内部最大成员的整数倍，不足的要补齐。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://baike.baidu.com/item/%E5%86%AF%C2%B7%E8%AF%BA%E4%BE%9D%E6%9B%BC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/4690854?fromtitle=%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84&amp;fromid=213926" title="冯诺依曼体系结构(百度百科)" target="_blank" rel="noopener">冯诺依曼体系结构(百度百科)</a></li>
-<li><a href="https://hit-alibaba.github.io/interview/basic/arch/Arch.html" title="体系结构基础" target="_blank" rel="noopener">体系结构基础</a></li>
+<p>对此要理解的一个是，在系统中内核并不是作为一个与用户进程平行的估计的进程的集合，内核是为用户进程运行的。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://hit-alibaba.github.io/interview/basic/arch/OS.html" title="操作系统基础" target="_blank" rel="noopener">操作系统基础</a></li>
 </ul>
 
             
@@ -529,7 +505,7 @@
                             版权归博主王二小所有，转载注明出处
                         
                         <br>
-                        本文链接： http://www.muer.link/体系结构基础.html
+                        本文链接： http://www.muer.link/系统——计算机系统基础.html
                     </p>
                 </blockquote>
             
@@ -584,7 +560,7 @@
             owner: 'sishuiwuxie',
             admin: ['sishuiwuxie'],
             // facebook-like distraction free mode
-            id: '体系结构基础', // 加了这一行
+            id: '计算机系统基础', // 加了这一行
             distractionFreeMode: false
         })
    gitalk.render('gitalk-container')
@@ -597,7 +573,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/计算机系统基础.html" id="post_nav-newer" class="prev-content">
+        <a href="/系统——操作系统并发.html" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -611,7 +587,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/LINUX指令.html" id="post_nav-older" class="next-content">
+        <a href="/系统——体系结构基础.html" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
