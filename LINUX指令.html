@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Wed May 23 2018 11:12:21 GMT+0800">
-        <meta property="article:modified_time" content="Wed May 30 2018 19:47:31 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jun 08 2018 18:26:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "http://www.muer.link/LINUX指令.html",
     "headline": "LINUX指令",
     "datePublished": "Wed May 23 2018 11:12:21 GMT+0800",
-    "dateModified": "Wed May 30 2018 19:47:31 GMT+0800",
+    "dateModified": "Fri Jun 08 2018 18:26:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王二小",
@@ -472,7 +472,8 @@
             <p class="post-title">
                 LINUX指令
             </p>
-            <h2 id="LINUX指令常见指令"><a href="#LINUX指令常见指令" class="headerlink" title="LINUX指令常见指令"></a>LINUX指令常见指令</h2><ol>
+            <p>我们所需要的，不是天才，不是玩世不恭者，不是愤世嫉俗者，不是机敏的策略家，而是真挚的，坦诚的人。要使我们能够找到重返纯朴与真诚的道路，我们的精神包容量足够地充分，我们自身的正直足够地问心无愧了吗？–朋霍费尔</p>
+<h2 id="LINUX指令常见指令"><a href="#LINUX指令常见指令" class="headerlink" title="LINUX指令常见指令"></a>LINUX指令常见指令</h2><ol>
 <li><p><strong>查进程</strong><br><br>ps命令查找与进程相关的PID号：<br><br>ps a 显示现行终端机下的所有程序，包括其他用户的程序。<br><br>ps -A 显示所有程序。<br><br>ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。<br><br>ps -e 此参数的效果和指定”A”参数相同。<br><br>ps e 列出程序时，显示每个程序所使用的环境变量。<br><br>ps f 用ASCII字符显示树状结构，表达程序间的相互关系。<br><br>ps -H 显示树状结构，表示程序间的相互关系。<br><br>ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。<br><br>ps s 采用程序信号的格式显示程序状况。<br><br>ps S 列出程序时，包括已中断的子程序资料。<br><br>ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。<br><br>ps u 以用户为主的格式来显示程序状况。<br><br>ps x 显示所有程序，不以终端机来区分。<br><br>最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。<br><br> ps aux | grep program_filter_word,ps -ef |grep tomcat<br><br>显示出所有的java进程，去处掉当前的grep进程。<br><br>ps -ef|grep java|grep -v grep </p>
 </li>
 <li><p><strong>杀进程</strong><br><br>使用kill命令结束进程：kill xxx<br><br>常用：kill －9 324<br><br>Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME<br></p>
