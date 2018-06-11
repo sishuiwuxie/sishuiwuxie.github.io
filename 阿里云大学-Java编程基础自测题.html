@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            阿里云大学--Java编程基础自测题 | 
+        
+        慕尔小站
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="慕尔小站">
+    <meta name="msapplication-starturl" content="http://www.muer.link/阿里云大学-Java编程基础自测题.html">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="慕尔小站">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://www.muer.link/阿里云大学-Java编程基础自测题.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="阿里云大学--Java编程基础自测题 | 慕尔小站">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Jun 11 2018 16:49:47 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jun 11 2018 17:10:13 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://www.muer.link/阿里云大学-Java编程基础自测题.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://www.muer.link/阿里云大学-Java编程基础自测题.html",
+    "headline": "阿里云大学--Java编程基础自测题",
+    "datePublished": "Mon Jun 11 2018 16:49:47 GMT+0800",
+    "dateModified": "Mon Jun 11 2018 17:10:13 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "王二小",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "三寸气在千般用，一日无常万事休"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "慕尔小站",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?17ddacfe4bd16b0446822fc98f69074d';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Isolation" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;慕尔小站
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="慕尔小站">
+                慕尔小站
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                三寸气在千般用，一日无常万事休
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/104980839066627469807" target="_blank">
+            <i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+
+                    <!-- Post TOC -->
+
+    
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="王二小's avatar">
+            <span class="name-span">王二小</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                阿里云大学--Java编程基础自测题
+            </p>
+            <h2 id="阿里云大学-gt-Java编程基础自测题"><a href="#阿里云大学-gt-Java编程基础自测题" class="headerlink" title="阿里云大学&gt;Java编程基础自测题"></a>阿里云大学&gt;Java编程基础自测题</h2><ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">int</span> num = <span class="number">68</span> ; </span><br><span class="line">                    <span class="keyword">char</span> c = (<span class="keyword">char</span>) num ; </span><br><span class="line">                    System.out.println(c) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">            最终的执行结果是什么？</span><br><span class="line">A . B</span><br><span class="line">B . C</span><br><span class="line">C . D</span><br><span class="line">D . a</span><br></pre></td></tr></table></figure>
+<p><strong>C . D</strong></p>
+<ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">boolean</span> flag = <span class="number">10</span>%<span class="number">2</span> == <span class="number">1</span> &amp;&amp; <span class="number">10</span> / <span class="number">3</span> == <span class="number">0</span> &amp;&amp; <span class="number">1</span> / <span class="number">0</span> == <span class="number">0</span> ; </span><br><span class="line">                    System.out.println(flag ? <span class="string">"mldn"</span> : <span class="string">"yootk"</span>) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">             </span><br><span class="line">            最终执行结果是什么？</span><br><span class="line">A .mldn</span><br><span class="line">B .yootk</span><br><span class="line">C .<span class="keyword">true</span></span><br><span class="line">D .程序出错</span><br></pre></td></tr></table></figure>
+<p><strong>B .yootk</strong></p>
+<ol>
+<li>下面那种注释不属于Java语言？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .<span class="comment">// 注释</span></span><br><span class="line">B .-- 注释</span><br><span class="line">C .<span class="comment">/**注释..*/</span></span><br><span class="line">D .<span class="comment">/* 注释..*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>B .– 注释</strong></p>
+<ol>
+<li>下面那个标识符不符合Java定义要求？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .String</span><br><span class="line">B ._Name</span><br><span class="line">C .Name123</span><br><span class="line">D .<span class="number">100</span>Book</span><br></pre></td></tr></table></figure>
+<p><strong>D .100Book</strong></p>
+<ol>
+<li>编译Java源程序文件产生的字节码文件的扩展名为？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .java</span><br><span class="line">B .class</span><br><span class="line">C .html</span><br><span class="line">D .exe</span><br></pre></td></tr></table></figure>
+<p><strong>B .class</strong></p>
+<p>6.运行完下面面代码之后输出i的值是多少？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Happy</span> </span>&#123; </span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span>     </span>&#123; </span><br><span class="line">                     <span class="keyword">int</span> i = <span class="number">1</span> ;     </span><br><span class="line">                     <span class="keyword">int</span> j = i++ ; </span><br><span class="line">                     <span class="keyword">if</span>((i==(++j))&amp;&amp;((i++)==j))     &#123; </span><br><span class="line">                         i += j ; </span><br><span class="line">                     &#125; </span><br><span class="line">                     System.out.println(<span class="string">"i = "</span>+i); </span><br><span class="line">                 &#125; </span><br><span class="line">             &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>B .5</strong></p>
+<ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">int</span> sum = <span class="number">0</span> ; </span><br><span class="line">                    <span class="keyword">int</span> x = <span class="number">10</span> ; </span><br><span class="line">                    <span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123; </span><br><span class="line">                        sum += x ; </span><br><span class="line">                    &#125; </span><br><span class="line">                    System.out.println(sum) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">            最终执行结果是什么？</span><br><span class="line">A .<span class="number">55</span></span><br><span class="line">B .<span class="number">10</span></span><br><span class="line">C .程序错误，死循环</span><br><span class="line">D .<span class="number">15</span></span><br></pre></td></tr></table></figure>
+<p><strong>C .程序错误，死循环</strong></p>
+<ol>
+<li>下面关于Java程序编写描述正确的一项是？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .Java程序直接利用javac.exe命令就可以直接运行程序</span><br><span class="line"> B .一个Java文件中可以定义有多个<span class="class"><span class="keyword">class</span>声明，并且类名称可以与文件名称同名</span></span><br><span class="line"><span class="class"> <span class="title">C</span> .一个<span class="title">Java</span>文件可以使用<span class="title">public</span> <span class="title">class</span>定义多个程序类</span></span><br><span class="line"><span class="class"> <span class="title">D</span> .<span class="title">Java</span>文件的后缀必须使用“*.<span class="title">javac</span>”</span></span><br></pre></td></tr></table></figure>
+<p><strong>B .一个Java文件中可以定义有多个class声明，并且类名称可以与文件名称同名</strong></p>
+<ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                     String str = <span class="string">""</span> ; </span><br><span class="line">                     <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x ++) &#123; </span><br><span class="line">                         str += x ; </span><br><span class="line">                     &#125; </span><br><span class="line">                     System.out.println(str) ; </span><br><span class="line">                 &#125; </span><br><span class="line">             &#125; </span><br><span class="line">             最终的执行结果是什么？</span><br><span class="line"> A .<span class="number">01234</span></span><br><span class="line"> B .<span class="number">10</span></span><br><span class="line"> C .<span class="number">14</span></span><br><span class="line"> D .<span class="number">25</span></span><br></pre></td></tr></table></figure>
+<p><strong>A .01234</strong></p>
+<ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">int</span> num = <span class="number">2147483647</span> ; </span><br><span class="line">                    <span class="keyword">long</span> temp = num + <span class="number">2L</span> ; </span><br><span class="line">                    System.out.println(num) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">            最终的执行结果是什么？</span><br><span class="line">A .-<span class="number">2147483648</span></span><br><span class="line">B .<span class="number">2147483649</span></span><br><span class="line">C .<span class="number">2147483647</span></span><br><span class="line">D .<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><strong> C .2147483647</strong></p>
+<ol>
+<li>现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">infos</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span>；</span></span><br><span class="line"><span class="function">B .<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">double</span> y)</span>；</span></span><br><span class="line"><span class="function">C .<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">info</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span>；</span></span><br><span class="line"><span class="function">D .<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">infos</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span>；</span></span><br></pre></td></tr></table></figure>
+<p><strong>C .public static int info(int x,int y)；</strong></p>
+<ol>
+<li>假设有如下程序： </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                               <span class="keyword">long</span> num = <span class="number">100</span> ; </span><br><span class="line">                               <span class="keyword">int</span> x = num + <span class="number">2</span> ; </span><br><span class="line">                               System.out.println(x) ; </span><br><span class="line">                     &#125; </span><br><span class="line">            &#125; </span><br><span class="line">            最终程序的执行结果是什么？</span><br><span class="line">A .<span class="number">102</span></span><br><span class="line">B .<span class="number">1002</span></span><br><span class="line">C .<span class="number">100</span></span><br><span class="line">D .程序错误</span><br></pre></td></tr></table></figure>
+<p><strong> D .程序错误</strong></p>
+<ol>
+<li>下面关于Java的特点不正确的一项是？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .Java具备跨平台性，可以在任意的操作系统间进行移植</span><br><span class="line">B .Java编写的程序可以直接解释执行，属于解释型的编程语言类型</span><br><span class="line">C .Java中具备垃圾收集机制，这样在用户编写代码中无须处理手工处理内存空间的释放操作</span><br><span class="line">D .Java EE企业级开发是在Java SE基础之上的扩展应用</span><br></pre></td></tr></table></figure>
+<p><strong>B .Java编写的程序可以直接解释执行，属于解释型的编程语言类型</strong></p>
+<ol>
+<li>假设有如下程序，最终执行结果是什么？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">char</span> c = <span class="string">'A'</span> ; </span><br><span class="line">                    <span class="keyword">int</span> num = <span class="number">10</span> ; </span><br><span class="line">                    <span class="keyword">switch</span>(c) &#123; </span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'B'</span> : </span><br><span class="line">                            num ++ ; </span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'A'</span> : </span><br><span class="line">                            num ++ ; </span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'Y'</span> : </span><br><span class="line">                            num ++ ; </span><br><span class="line">                            <span class="keyword">break</span> ; </span><br><span class="line">                        <span class="keyword">default</span> : </span><br><span class="line">                            num -- ; </span><br><span class="line">                    &#125; </span><br><span class="line">                    System.out.println(num) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line"></span><br><span class="line">A .<span class="number">11</span></span><br><span class="line">B .<span class="number">13</span></span><br><span class="line">C .<span class="number">12</span></span><br><span class="line">D .<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><strong>C .12</strong></p>
+<ol>
+<li>假设有如下程序，最终执行结果是什么？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    System.out.println(inc(<span class="number">10</span>) + inc(<span class="number">8</span>) + inc(-<span class="number">10</span>)) ; </span><br><span class="line">                &#125; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">inc</span><span class="params">(<span class="keyword">int</span> temp)</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">if</span> (temp &gt; <span class="number">0</span>) &#123; </span><br><span class="line">                        <span class="keyword">return</span> temp * <span class="number">2</span> ; </span><br><span class="line">                    &#125; </span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span> ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line"></span><br><span class="line">A .<span class="number">35</span></span><br><span class="line">B .<span class="number">8</span></span><br><span class="line">C .<span class="number">28</span></span><br><span class="line">D .<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p><strong> A .35</strong></p>
+<ol>
+<li>假设有如下程序，最终执行结果是什么？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">                    <span class="keyword">int</span> num = <span class="number">2147483647</span> ; </span><br><span class="line">                    num += <span class="number">2</span> ; </span><br><span class="line">                    System.out.println(num) ; </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">            </span><br><span class="line">A .-<span class="number">2147483648</span></span><br><span class="line">B .<span class="number">2147483649</span></span><br><span class="line">C .-<span class="number">2147483647</span></span><br><span class="line">D .<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><strong>C .-2147483647</strong></p>
+<ol>
+<li>下面那一项关于基本数据类型的描述是正确的？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .<span class="keyword">boolean</span>数据类型只有<span class="keyword">true</span>和<span class="keyword">false</span>两种取值</span><br><span class="line"> B .使用<span class="keyword">long</span>可以保存小数</span><br><span class="line"> C .<span class="keyword">float</span>数据类型可以保存的数据范围比<span class="keyword">double</span>数据范围要大</span><br><span class="line"> D .<span class="keyword">byte</span>数据类型可以正常保存<span class="number">200</span>这个数字</span><br></pre></td></tr></table></figure>
+<p><strong>A .boolean数据类型只有true和false两种取值</strong></p>
+<ol>
+<li>下面那一个关键字（保留字）属于Java未被使用到的关键字（保留字）？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .<span class="keyword">final</span></span><br><span class="line"> B .goto</span><br><span class="line"> C .<span class="keyword">enum</span></span><br><span class="line"> D .<span class="keyword">assert</span></span><br></pre></td></tr></table></figure>
+<p><strong> B .goto</strong></p>
+<ol>
+<li>下面那一个属性与Java解释程序有关？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .CLASSPATH</span><br><span class="line"> B .GC</span><br><span class="line"> C .TMP</span><br><span class="line"> D .CPU</span><br></pre></td></tr></table></figure>
+<p><strong>A .CLASSPATH</strong></p>
+<ol>
+<li>下面那种类型不属于Java的基本数据类型？</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A .<span class="keyword">byte</span></span><br><span class="line">B .<span class="keyword">int</span></span><br><span class="line">C .<span class="keyword">boolean</span></span><br><span class="line">D .String</span><br></pre></td></tr></table></figure>
+<p><strong>D .String</strong></p>
+
+            
+                <blockquote>
+                    <p>
+                         
+                            版权归博主王二小所有，转载注明出处
+                        
+                        <br>
+                        本文链接： http://www.muer.link/阿里云大学-Java编程基础自测题.html
+                    </p>
+                </blockquote>
+            
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '90da52e76c9dfebd06cc',
+            clientSecret: '05a2679188fdb74102b8953810fce915ae06d09b',
+            repo: 'gittalk',
+            owner: 'sishuiwuxie',
+            admin: ['sishuiwuxie'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+            clientID: '90da52e76c9dfebd06cc',
+            clientSecret: '05a2679188fdb74102b8953810fce915ae06d09b',
+            repo: 'gittalk',
+            owner: 'sishuiwuxie',
+            admin: ['sishuiwuxie'],
+            // facebook-like distraction free mode
+            id: '阿里云大学--Java编程基础自测题', // 加了这一行
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/selenuim2踩坑.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
